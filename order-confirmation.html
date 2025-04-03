@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmation</title>
+    <script>
+        function displayOrderData() {
+            // Retrieve data from localStorage
+            const product = localStorage.getItem('product');
+            const quantity = localStorage.getItem('quantity');
+            const price = localStorage.getItem('price');
+            const name = localStorage.getItem('name');
+            const email = localStorage.getItem('email');
+            const address = localStorage.getItem('address');
+            const payment = localStorage.getItem('payment');
+
+            // Populate the confirmation details
+            document.getElementById('product').innerText = product;
+            document.getElementById('quantity').innerText = quantity;
+            document.getElementById('price').innerText = `₹${price}`;
+            document.getElementById('name').innerText = name;
+            document.getElementById('email').innerText = email;
+            document.getElementById('address').innerText = address;
+            document.getElementById('payment').innerText = payment;
+        }
+
+        // Ensure the function runs after the page loads
+        window.onload = displayOrderData;
+    </script>
+</head>
+<body style="font-family: Arial, sans-serif; background-color: #f7f7f7; margin: 0; padding: 0; display: flex; justify-content: center; align-items: center; height: 100vh;">
+
+    <div style="background-color: #fff; padding: 30px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); max-width: 400px; width: 100%; text-align: center;">
+        <h1 style="color: #333; margin-bottom: 20px;">Order Confirmed!</h1>
+        <p style="color: #555; font-size: 16px; line-height: 1.6;">Thank you for your order! We’ve received the following details:</p>
+
+        <div style="text-align: left; margin: 20px 0; font-size: 14px;">
+            <p><strong>Product:</strong> <span id="product"></span></p>
+            <p><strong>Quantity:</strong> <span id="quantity"></span></p>
+            <p><strong>Total Price:</strong> <span id="price"></span></p>
+            <p><strong>Name:</strong> <span id="name"></span></p>
+            <p><strong>Email:</strong> <span id="email"></span></p>
+            <p><strong>Address:</strong> <span id="address"></span></p>
+            <p><strong>Payment Mode:</strong> <span id="payment"></span></p>
+        </div>
+
+        <p style="color: #555; font-size: 16px; line-height: 1.6;">You will receive a confirmation email shortly with the order details.</p>
+
+        <button onclick="window.location.href='index.html'" style="background-color: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 5px; font-size: 16px; cursor: pointer; margin-top: 20px;">Back to Home</button>
+    </div>
+</body>
+</html>
